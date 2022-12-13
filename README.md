@@ -5,7 +5,7 @@ https://youtu.be/1AzujLnr3RM
 
 ## content
 ### new_speices.fasta
-fasta file created with my fast++ tool, contains the entire genome of a hypothetical new speices \ 
+fasta file created with my fast++ tool, contains the entire genome of a hypothetical new speices 
 ### queries/mismatch
 Used to demonstrate blast output format and statistics
 ### queries/short.fasta
