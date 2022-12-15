@@ -17,7 +17,7 @@ Used to show that BLAST finds reverse compliments
 ### queries/repeate.fasta
 Used to show that blast filters out low complexity regions.  Also introduce `-dust` and `-soft_masking` parameters
 
-## How To
+## Getting Started With Blast
 ### First we make a database using new_species.fasta
 `makeblastdb -in new_species.fasta -dbtype nucl -out db/new_species` \
 When we run the above command, we see some statistics printed to the terminal.  We also created a directory called db, this is where our database is stored. \
@@ -29,7 +29,7 @@ Query  1    GGCATCATCACGCCGTTATTTCATGTCTCAGGATACGTTCGCGGAGGAGTTAAACCTCTT  60
             ||| |||| ||||||| ||||||| |||||||||||||||||| ||||||||||||||||    
 Sbjct  1    GGCTTCATTACGCCGTGATTTCATCTCTCAGGATACGTTCGCGAAGGAGTTAAACCTCTT  60
 ```
-The `|`s between the letters indicate a match, or *identity* and the letters not connected by by a `|` do not match.  Above the sequence alignment we can see some statistics.  For this alignment we get the following:
+The `|`s between the letters indicate a match, or *identity* and the letters not connected by a `|` do not match.  Above the sequence alignment we can see some statistics.  For this alignment we get the following:
 ```
 Score = 339 bits (183)
 ```
@@ -46,3 +46,9 @@ As previously mentoined, identities are matches between the database and the que
 Gaps = 2/235 (1%)
 ```
 Gaps in alignments indicate insertions and deletions between the query and the database.
+```
+Strand=Plus/Plus
+```
+Due to the double-stranded nature of DNA, blast must also search not only for sequences that are similar, but also for reverse compliments that are similar. the Plus/Plus indicates that our match is not a reverse compliment.
+## Tweaking the Parameters
+When we run `blastn -h` we get a list of all the parameters that we can use with blast.
