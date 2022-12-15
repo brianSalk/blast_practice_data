@@ -24,10 +24,10 @@ When we run the above command, we see some statistics printed to the terminal.  
 We can compare our query sequences agains the database, lets start by comparing `mismatch.fasta` \
 `blastn -db db/new_species -query queries/mismatch.fasta > out` \ 
 because we used the `>` operator to redirect our output to the `out` file, we do not see any output after running the above command.  When we examine the contents of `out` and scroll down we see one very long alignment that starts like: \
-`
-Query  1    GGCATCATCACGCCGTTATTTCATGTCTCAGGATACGTTCGCGGAGGAGTTAAACCTCTT  60
+```
+Query  1    GGCATCATCACGCCGTTATTTCATGTCTCAGGATACGTTCGCGGAGGAGTTAAACCTCTT  60 
             ||| |||| ||||||| ||||||| |||||||||||||||||| ||||||||||||||||    
 Sbjct  1    GGCTTCATTACGCCGTGATTTCATCTCTCAGGATACGTTCGCGAAGGAGTTAAACCTCTT  60
-` 
+```
 
 
