@@ -24,7 +24,7 @@ git clone https://github.com/brianSalk/blast_practice_data.git; cd blast_practic
 ## Getting Started With Blast
 Blast comes with many different commands.  This tutorial will serve as an introduction and as such will only require the use of two BLAST programs: \
 `blastn` and `makeblastdb` \
-blastn is used to align nucleotide queries to a database of nucleotides and `makeblastdb` is used to create our database. \
+`blastn` is used to align nucleotide queries to a database of nucleotides and `makeblastdb` is used to create our database. \
 We need to create a database because BLAST is not designed to compare two fasta files directly.
 ### make a database using new_species.fasta as a reference
 ```
@@ -33,7 +33,7 @@ makeblastdb -in new_species.fasta -dbtype nucl -out db/new_species
 When we run the above command, we see some statistics printed to the terminal.  We also created a directory called db, this is where our database is stored. \
 We can compare our query sequences agains the database, lets start by comparing `mismatch.fasta` \
 `blastn -db db/new_species -query queries/mismatch.fasta > out` \ 
-because we used the `>` operator to redirect our output to the `out` file, we do not see any output after running the above command.  When we examine the contents of `out` and scroll down we see one very long *sequence alignment* that starts like:
+because we used the `>` operator to redirect our output to the `out` file, we do not see any output after running the above command.  When we examine the contents of `out` and scroll down we see one very long **sequence alignment** that begins like:
 ```
 Query  1    GGCATCATCACGCCGTTATTTCATGTCTCAGGATACGTTCGCGGAGGAGTTAAACCTCTT  60 
             ||| |||| ||||||| ||||||| |||||||||||||||||| ||||||||||||||||    
@@ -55,14 +55,14 @@ As previously mentoined, identities are matches between the database and the que
 ```
 Gaps = 2/235 (1%)
 ```
-Gaps in alignments indicate insertions and deletions between the query and the database.
+Gaps in alignments indicate insertions and deletions (INDELs) between the query and the database.
 ```
 Strand=Plus/Plus
 ```
 Due to the double-stranded nature of DNA, blast must also search not only for sequences that are similar, but also for reverse compliments that are similar. the Plus/Plus indicates that our match is not a reverse compliment.
-## Tweaking the Parameters
-When we run `blastn -h` we get a list of all the parameters that we can use with blast. \
 ## blast parameters
+When we run `blastn -h` we get a list of all the parameters that we can use with blast. \
+To get a more in depth list, run `blastn -help`
 ### -penalty
 Lets go ahead and change the value to one of these parameters by running the following command:
 ```
