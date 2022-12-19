@@ -5,7 +5,7 @@ https://youtu.be/1AzujLnr3RM
 
 ## content
 ### new_speices.fasta
-fasta file created with my fast++ tool, contains the entire genome of a hypothetical new speices 
+fasta file created with my [fastcpp tool](https://github.com/brianSalk/fastcpp), contains the entire genome of a hypothetical new speices 
 ### queries/mismatch
 Used to demonstrate blast output format and statistics
 ### queries/short.fasta
@@ -16,6 +16,28 @@ Used to demonstrate gapped alignments caused by INDELs.  Also demonstrate the `-
 Used to show that BLAST finds reverse compliments
 ### queries/repeate.fasta
 Used to show that blast filters out low complexity regions.  Also introduce `-dust` and `-soft_masking` parameters
+## BAST installation
+### The easy way
+the easiest way to install blast is to use your package manager:
+#### Debian/Ubuntu
+```
+sudo apt-get install ncbi-blast+
+```
+#### arch linux
+```
+sudo pacman -S blast+
+```
+### The hard way
+visit [the ncbi-blast download page](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) and download the version for your hardware. \
+once the download is complete, open your terminal and navigate to your `Downloads` directory and run \
+```
+tar -zxf <your_blast_file.tar.gz>
+```
+move the resulting directory to a perminant locaiton on your computer \
+add the following line to your `bashrc`, `zshrc` or other file that is sourced each time you open a terminal 
+```
+PATH="/path/to/your/blast/directory/bin:${PATH}"
+```
 ## Clone this repo to your computer
 on your computer, open a UNIX terminal and past the following command into your terminal:
 ```
@@ -24,7 +46,7 @@ git clone https://github.com/brianSalk/blast_practice_data.git; cd blast_practic
 ## Getting Started With Blast
 Blast comes with many different commands.  This tutorial will serve as an introduction and as such will only require the use of two BLAST programs: \
 `blastn` and `makeblastdb` \
-`blastn` is used to align nucleotide queries to a database of nucleotides and `makeblastdb` is used to create our database. \
+`blastn` is used to align nucleotide queries from [fasta](https://zhanggroup.org/FASTA/) files to a database of nucleotides and `makeblastdb` is used to create our database. \
 We need to create a database because BLAST is not designed to compare two fasta files directly.
 ### make a database using new_species.fasta as a reference
 ```
