@@ -111,7 +111,7 @@ blastn -db db/new_species -query queries/short.fasta >| out -word_size 7
 ```
 Now we get serveral matches!  But look at the evalues.  Do you think an evalue of, say, 4.9 is very good?  If we just look at the identity percentage and ignore the bit score and evalue we might naivly think our results are significant.  The evalue and bit score tell us that our findings are likely to be coincidence and that we should be sceptical of any conclusions about the relationship between the query and the database.
 
-## -strand
+### -strand
 Run the following command:
 ```
 blastn -db db/new_species -query queries/compliment.fasta >| out
