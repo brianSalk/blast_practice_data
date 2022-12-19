@@ -131,3 +131,12 @@ If we do not want BLAST to report such matches (for whatever reason) we can use 
 blastn -db db/new_species -query queries/compliment.fasta >| out -strand=plus
 ```
 now when we examine `out`, we do not find any hits.
+## filtering
+By default, BLAST filters out low complexity regions in your query.  This is good for two reasons: \
+**1)** We do not typically care about alignments within low complexity sequences, many organisms contain sequences like **AACAACAACAACAAC...** and it is therefore not very interesting to find matches in such regions. \
+**2)** repetative regions such as the aformentioned can overlap with large sections of the database, this could cause BLAST to create many alignments and can impact performance greatly. \
+For our last part of this tutorial, run: 
+```
+blastn -db db/new_species -query queries/repeat.fasta >| out
+```
+This time I will save you the trouble of checking yourself and just tell you that the query sequence is in our database and is much longer than our default word size.  The reason we did not find a match is because our query sequence is a trinucleotide repeat of **AAT**, and is therefor filtered out by BLAST.
