@@ -22,8 +22,14 @@ on your computer, open a UNIX terminal and past the following command into your 
 git clone https://github.com/brianSalk/blast_practice_data.git; cd blast_practice_data
 ```
 ## Getting Started With Blast
-### First we make a database using new_species.fasta
-`makeblastdb -in new_species.fasta -dbtype nucl -out db/new_species` \
+Blast comes with many different commands.  This tutorial will serve as an introduction and as such will only require the use of two BLAST programs: \
+`blastn` and `makeblastdb` \
+blastn is used to align nucleotide queries to a database of nucleotides and `makeblastdb` is used to create our database. \
+We need to create a database because BLAST is not designed to compare two fasta files directly.
+### make a database using new_species.fasta as a reference
+```
+makeblastdb -in new_species.fasta -dbtype nucl -out db/new_species
+``` 
 When we run the above command, we see some statistics printed to the terminal.  We also created a directory called db, this is where our database is stored. \
 We can compare our query sequences agains the database, lets start by comparing `mismatch.fasta` \
 `blastn -db db/new_species -query queries/mismatch.fasta > out` \ 
