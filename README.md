@@ -30,7 +30,8 @@ We need to create a database because BLAST is not designed to compare two fasta 
 ```
 makeblastdb -in new_species.fasta -dbtype nucl -out db/new_species
 ``` 
-When we run the above command, we see some statistics printed to the terminal.  We also created a directory called db, this is where our database is stored. \
+When we run the above command, we see some statistics printed to the terminal.  We also created a directory called db, this is where our database is stored. 
+## BLAST output
 We can compare our query sequences agains the database, lets start by comparing `mismatch.fasta` \
 `blastn -db db/new_species -query queries/mismatch.fasta > out` \ 
 because we used the `>` operator to redirect our output to the `out` file, we do not see any output after running the above command.  When we examine the contents of `out` and scroll down we see one very long **sequence alignment** that begins like:
@@ -39,7 +40,9 @@ Query  1    GGCATCATCACGCCGTTATTTCATGTCTCAGGATACGTTCGCGGAGGAGTTAAACCTCTT  60
             ||| |||| ||||||| ||||||| |||||||||||||||||| ||||||||||||||||    
 Sbjct  1    GGCTTCATTACGCCGTGATTTCATCTCTCAGGATACGTTCGCGAAGGAGTTAAACCTCTT  60
 ```
-The `|`s between the letters indicate a match, or *identity* and the letters not connected by a `|` do not match.  Above the sequence alignment we can see some statistics.  For this alignment we get the following:
+The `|`s between the letters indicate a match, or *identity* and the letters not connected by a `|` do not match.  
+### BLAST statistics
+Above the sequence alignment we can see some statistics.  For this alignment we get the following:
 ```
 Score = 339 bits (183)
 ```
