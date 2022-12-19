@@ -37,7 +37,7 @@ This is the bit score, the bit score is a log_2 normalized number that tells us 
 ```
 Expect = 2e-95
 ```
-The Expected value (AKA evalue) is the number of times we would expect to get a match this good by chance.  Lower evalues indicate better matches.  Our evalue for this alignment is 2e-95, which is very close to 0.
+The Expected value (AKA evalue) is the number of times we would expect to get a match this good by chance.  Lower evalues indicate better matches.  Our evalue for this alignment is 2e-95, which is very close to 0, meaning the match is almost certainly not just a coincidence.
 ```
 Identities = 218/235 (93%)
 ```
@@ -51,4 +51,5 @@ Strand=Plus/Plus
 ```
 Due to the double-stranded nature of DNA, blast must also search not only for sequences that are similar, but also for reverse compliments that are similar. the Plus/Plus indicates that our match is not a reverse compliment.
 ## Tweaking the Parameters
-When we run `blastn -h` we get a list of all the parameters that we can use with blast.
+When we run `blastn -h` we get a list of all the parameters that we can use with blast. \
+
