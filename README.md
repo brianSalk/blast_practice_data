@@ -52,4 +52,69 @@ Strand=Plus/Plus
 Due to the double-stranded nature of DNA, blast must also search not only for sequences that are similar, but also for reverse compliments that are similar. the Plus/Plus indicates that our match is not a reverse compliment.
 ## Tweaking the Parameters
 When we run `blastn -h` we get a list of all the parameters that we can use with blast. \
+## blast parameters
+### -penalty
+Lets go ahead and change the value to one of these parameters by running the following command:
+```
+blastn -db db/new_species -query queries/mismatch.fasta > out -penalty -5
+```
+Now go ahead and examine your `out` file.  Notice anything different?  You will see that most of the file looks similar except your evalue and bitsscores changed a bit (bit score is now 135 and evalue is 5e-75).  Because we specified a more harsh penalty, we have increased our evalue and decreased our bit score.  Notice that the identity percentage and gaps percentage did not change.  By decreasing the the argument to `-penatly` from it's default value of -3 to -5, we made BLAST more punitive.
+### -gapopen, -gapextend
+Now let's query our `gaps.fasta` file:
+```
+blastn -db db/new_species -query queries/gaps.fasta >| out
+```
+quick asside, I used `>|` instead of `>` because you might have your `noclobber` option set and `>` will not overwrite a file when `noclobber` is turned on. \
+Anyway, When we examine the `out` file now, we see three relativly large gaps in our alignment.  Let's change the gap penalties and see how that changes the results. \
+BLAST has two seperate gap penalties, a penalty to start a gap and a penalty to  continue a gap. \
+Why are these parameters usefull?  Perhaps you know that an organism - for whatever biological reason - is unlikely to accrue insertion/deletions in its genome.  In that case you may way to penalize gaps heavier.  The opposite is true when you susspect that INDELs are common in an organism. \
+let's set both of these to very high numbers and see what happens:
+```
+blastn -db db/new_species -query queries/gaps.fasta >| out -gapopen 100 -gapextend 100
+```
+notice that we use positive integers to increase gap penalties while mismatch penalties were expressed in negative numbers. \
+When you examine `out` this time, you will see 4 ungapped alignments instead of one gapped alignment.  With such extreme penalties for gaps, BLAST decided that it was better to count each non-gapped segment as a small aligment. 
 
+### -word_size
+Now we will query our `short.fasta` file: \
+```
+blastn -db db/new_species -query queries/short.fasta >| out
+```
+Hmmmm... No matches this time.  Is that really correct?  let's use a different search tool - `grep` - to verify our findings. \
+`grep` is a great search tool for pattern matching and exact word finding. \
+Our queries/short.fasta file contains two sequences, they are **GCCGTGAT** and **GGCTTCATTACG** \
+We can verify that they do not exist in our database by searching for them to the raw `new_species.fasta` file we used to create our database using grep.
+run the following command to return all instances of **GCCGTGAT** and **GGCTTCATTACG**: \
+```
+grep -Eo 'GGCTTCATTACG|GCCGTGAT' < new_species.fasta
+```
+I won't go into detail about grep, but basically since BLAST found not hits, we would not expect `grep` to find any exact matches or the two sequences.  So what happened?  Why did BLAST not find matches but grep did? \
+The answer is that BLAST uses a `-word_size` parameter.  Essentially, BLAST searches for exact matches that are of a certain minimum length called a word size.  This is one of several reasons why BLAST is able to perform so well.  By eliminating words that do not match perfectly, blast can avoid doing very computationally expensive operations on areas of the query that are unlikely to yeild results.  \
+The longer the word size the less sensitive BLAST is, the shorter the word size, the longer it takes BLAST to complete an alignment.  It is therefor very important to set the word size appropriatly. \
+Since our query sequences are in the database but did not show up, we can assume that our default word size is longer that the sequences in our query file. \
+Let's see what happens if we set the word_size to 7:
+```
+blastn -db db/new_species -query queries/short.fasta >| out -word_size 7
+```
+Now we get serveral matches!  But look at the evalues.  Do you think an evalue of, say, 4.9 is very good?  If we just look at the identity percentage and ignore the bit score and evalue we might naivly think our results are significant.  The evalue and bit score tell us that our findings are likely to be coincidence and that we should be sceptical of any conclusions about the relationship between the query and the database.
+
+## -strand
+Run the following command:
+```
+blastn -db db/new_species -query queries/compliment.fasta >| out
+```
+When we examine the file, we see that we have a perfect match!  The identity percentage is 100, the bit score is incredible and the evalue is 0.0. \
+So we would expect that if we search for any long stretch of the query in our `new_species.fasta` file we should find a match right? \
+```
+grep -Eo CATACTTCTAAGTACTCAAGACTGATGACTCTGACTACGCGCCAGCGGGCAGGAAATAGA < new_species.fasta
+```
+What??? Why are we not finding this in our `new_species.fasta`?!!  First BLAST failed to find matches that existed because they were too short and now BLAST finds very high scoring matches that do not exist in our database at all...  \
+Remember that DNA is double stranded and that base pairs bind to compliments.  So not only does BLAST need to find close matches, but blast also needs to find close matches to **reverse compliments**.  We can verify that our query is a reverse compliment by looking at the `strand` part of our `out` file. \
+```
+Strand=Plus/Minus
+```
+If we do not want BLAST to report such matches (for whatever reason) we can use the `-strand` parameter:
+```
+blastn -db db/new_species -query queries/compliment.fasta >| out -strand=plus
+```
+now when we examine `out`, we do not find any hits.
