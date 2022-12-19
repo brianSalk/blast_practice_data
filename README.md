@@ -16,7 +16,11 @@ Used to demonstrate gapped alignments caused by INDELs.  Also demonstrate the `-
 Used to show that BLAST finds reverse compliments
 ### queries/repeate.fasta
 Used to show that blast filters out low complexity regions.  Also introduce `-dust` and `-soft_masking` parameters
-
+## Clone this repo to your computer
+on your computer, open a UNIX terminal and past the following command into your terminal:
+```
+git clone https://github.com/brianSalk/blast_practice_data.git; cd blast_practice_data
+```
 ## Getting Started With Blast
 ### First we make a database using new_species.fasta
 `makeblastdb -in new_species.fasta -dbtype nucl -out db/new_species` \
