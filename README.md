@@ -111,7 +111,7 @@ notice that we use positive integers to increase gap penalties while mismatch pe
 When you examine `out` this time, you will see 4 ungapped alignments instead of one gapped alignment.  With such extreme penalties for gaps, BLAST decided that it was better to count each non-gapped segment as a small aligment. 
 
 ### -word_size
-Now we will query our `short.fasta` file: \
+Now we will query our `short.fasta` file: 
 ```
 blastn -db db/new_species -query queries/short.fasta >| out
 ```
@@ -119,7 +119,7 @@ Hmmmm... No matches this time.  Is that really correct?  let's use a different s
 `grep` is a great search tool for pattern matching and exact word finding. \
 Our queries/short.fasta file contains two sequences, they are **GCCGTGAT** and **GGCTTCATTACG** \
 We can verify that they do not exist in our database by searching for them to the raw `new_species.fasta` file we used to create our database using grep.
-run the following command to return all instances of **GCCGTGAT** and **GGCTTCATTACG**: \
+run the following command to return all instances of **GCCGTGAT** and **GGCTTCATTACG**: 
 ```
 grep -Eo 'GGCTTCATTACG|GCCGTGAT' < new_species.fasta
 ```
