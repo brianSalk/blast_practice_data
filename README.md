@@ -29,7 +29,7 @@ sudo pacman -S blast+
 ```
 ### The hard way
 visit [the ncbi-blast download page](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) and download the version for your hardware. \
-once the download is complete, open your terminal and navigate to your `Downloads` directory and run \
+once the download is complete, open your terminal and navigate to your `Downloads` directory and run 
 ```
 tar -zxf <your_blast_file.tar.gz>
 ```
