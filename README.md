@@ -68,7 +68,7 @@ Above the sequence alignment we can see some statistics.  For this alignment we 
 ```
 Score = 339 bits (183)
 ```
-This is the bit score, the bit score is a log_2 normalized number that tells us how many nucleotides there would need to be in our database in order for us to expect our query to match up with something in the database by chance.  The larger the bitscore, the better the match.  our bitscore was 339, which means that we would need a database of 2^339 = 1119872371088902105278721140284222139060822748617324767449994550481895935590080472690438746635803557888 base pares in order to expect to find a match as close as the one we have.
+This is the bit score, the bit score is a $log_2$ normalized number that tells us how many nucleotides there would need to be in our database in order for us to expect our query to match up with something in the database by chance.  The larger the bitscore, the better the match.  our bitscore was 339, which means that we would need a database of 2^339 = 1119872371088902105278721140284222139060822748617324767449994550481895935590080472690438746635803557888 base pares in order to expect to find a match as close as the one we have.
 ```
 Expect = 2e-95
 ```
