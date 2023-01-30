@@ -161,4 +161,8 @@ For our last part of this tutorial, run:
 ```
 blastn -db db/new_species -query queries/repeat.fasta >| out
 ```
-This time I will save you the trouble of checking yourself and just tell you that the query sequence is in our database and is much longer than our default word size.  The reason we did not find a match is because our query sequence is a trinucleotide repeat of **AAT**, and is therefor filtered out by BLAST.
+This time I will save you the trouble of checking yourself and just tell you that the query sequence is in our database and is much longer than our default word size.  The reason we did not find a match is because our query sequence is a trinucleotide repeat of **AAT**, and is therefor filtered out by BLAST.\
+If you would like to display matches such as the one above, you can use the following command:
+```
+blastn -db db/new_species -query queries/repeat.fasta -dust no -soft_masking false >| out
+```
