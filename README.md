@@ -189,7 +189,7 @@ All the info is stored in XML format, making it easier for some downstream tools
 ### 6 tabular
 show summary information in tab seperated format. 
 ### 7 tabular with comment lines
-smae as **6**, except contains additional comments prefixed with `#`.
+same as **6**, except contains additional comments prefixed with `#`.
 ### 8 Text ASN.1
 converts all info to ASN.1 format, which is usefull for certain downstream tools.
 ### 9 Binary ASN.1
