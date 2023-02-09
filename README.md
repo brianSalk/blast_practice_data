@@ -166,3 +166,34 @@ If you would like to display matches such as the one above, you can use the foll
 ```
 blastn -db db/new_species -query queries/repeat.fasta -dust no -soft_masking false >| out
 ```
+## the -outfmt option
+the `-outfmt` option in blast will alter the way the alignment info is displayed after running your blast query.  
+the syntax for the `-outfmt` option is is follows:  
+```
+blastn -db <DB> -query <QUERY> -outfmt N
+```
+where `N` is a number in the range (0,9)  
+play around with this yourself to get a feel for how it works.  Here is a summery of what each output does.  
+*    Query ID: the identifier of the query sequence.
+
+*    Subject ID: the identifier of the subject sequence, which is the reference sequence in the database that was compared to the query sequence.
+
+*    Percentage of identity: the percentage of identical residues between the aligned regions of the query and subject sequences.
+
+*    Alignment length: the length of the aligned region of the query and subject sequences.
+
+*    Mismatches: the number of mismatched residues between the aligned regions of the query and subject sequences.
+
+*    Gap opens: the number of gap openings in the alignment.
+
+*    Query start: the start position of the alignment in the query sequence.
+
+*    Query end: the end position of the alignment in the query sequence.
+
+*    Subject start: the start position of the alignment in the subject sequence.
+
+*    Subject end: the end position of the alignment in the subject sequence.
+
+*    E-value: the expectation value, which is a measure of the significance of the alignment. Lower E-values indicate more significant alignments.
+
+*    Bit score: the bit score, which is a measure of the similarity of the alignment. Higher bit scores indicate more similar alignments.
