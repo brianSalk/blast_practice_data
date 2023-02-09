@@ -172,28 +172,43 @@ the syntax for the `-outfmt` option is is follows:
 ```
 blastn -db <DB> -query <QUERY> -outfmt N
 ```
-where `N` is a number in the range (0,9)  
+where `N` is a number in the range (0,11)  
 play around with this yourself to get a feel for how it works.  Here is a summery of what each output does.  
+### 0 pairwise
+this is the default output that we have been looking at so far  
+### 1 query-anchored showing identities
+identities (matching nucleotides/amino-acids) in the reference sequence are represented with `.`s.  Insertions are shown using special notation.
+### 2 query-anchored no identities
+same as **1**, except identities are not represented with `.`s.
+### 3 flat query-anchored, show identities
+identities are represented with `.`s. Deletions are shown instead of insertions (which is what makes it flat)
+### 4 flat query-anchored, no identities
+same as **3**, except identities are not represented with `.`s.
+### 5 XML format
+All the info is stored in XML format, making it easier for some downstream tools.
+### 6 tabular
+show summary information in tab seperated format. 
+### 7 tabular with comment lines
+smae as **6**, except contains additional comments prefixed with `#`.
+### 8 Text ASN.1
+converts all info to ASN.1 format, which is usefull for certain downstream tools.
+### 9 Binary ASN.1
+Binary version of **8**
+### 10 Comma-separated values
+Comma seperated summary stats
+### BLAST archive format (ASN.1)
+
+
+#### For 6,7, and 10 the collumns are:
 *    Query ID: the identifier of the query sequence.
-
 *    Subject ID: the identifier of the subject sequence, which is the reference sequence in the database that was compared to the query sequence.
-
 *    Percentage of identity: the percentage of identical residues between the aligned regions of the query and subject sequences.
-
 *    Alignment length: the length of the aligned region of the query and subject sequences.
-
 *    Mismatches: the number of mismatched residues between the aligned regions of the query and subject sequences.
-
 *    Gap opens: the number of gap openings in the alignment.
-
 *    Query start: the start position of the alignment in the query sequence.
-
 *    Query end: the end position of the alignment in the query sequence.
-
 *    Subject start: the start position of the alignment in the subject sequence.
-
 *    Subject end: the end position of the alignment in the subject sequence.
-
 *    E-value: the expectation value, which is a measure of the significance of the alignment. Lower E-values indicate more significant alignments.
-
 *    Bit score: the bit score, which is a measure of the similarity of the alignment. Higher bit scores indicate more similar alignments.
