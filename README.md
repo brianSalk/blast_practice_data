@@ -33,7 +33,7 @@ once the download is complete, open your terminal and navigate to your `Download
 ```
 tar -zxf <your_blast_file.tar.gz>
 ```
-move the resulting directory to a perminant locaiton on your computer \
+move the resulting directory to a perminant location on your computer \
 add the following line to your `bashrc`, `zshrc` or other file that is sourced each time you open a terminal 
 ```
 PATH="/path/to/your/blast/directory/bin:${PATH}"
