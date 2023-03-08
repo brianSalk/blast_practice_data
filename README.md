@@ -1,3 +1,22 @@
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Content](#content)
+  - [new_speices.fasta](#new_speicesfasta)
+  - [queries/mismatch](#queriesmismatch)
+  - [queries/short.fasta](#queriesshortfasta)
+  - [queries/gapped.fasta](#queriesgappedfasta)
+  - [queries/compliment.fasta](#queriescomplimentfasta)
+  - [queries/repeate.fasta](#queriesrepeatefasta)
+- [BLAST Installation](#blast-installation)
+  - [The Easy Way](#the-easy-way)
+  - [The Hard Way](#the-hard-way)
+- [Clone This Repo](#clone-this-repo)
+- [Getting Started With Blast](#getting-started-with-blast)
+  - [Make a Database Using new_species.fasta as a Reference](#make-a-database-using-new_speciesfasta-as-a-reference)
+- [BLAST Output](#blast-output)
+  - [BLAST Statistics](#blast-statistics)
+
 # blast_practice_data
 The data here is made to accompany the following YouTube video:
 
