@@ -1,12 +1,12 @@
 # Table of Contents
 
 - [Content](#content)
-  - [new_speices.fasta](#new_speicesfasta)
-  - [queries/mismatch](#queriesmismatch)
-  - [queries/short.fasta](#queriesshortfasta)
+  - [new_speices.fasta](https://github.com/brianSalk/blast_practice_data/blob/main/new_species.fasta)
+  - [queries/mismatch](https://github.com/brianSalk/blast_practice_data/blob/main/queries/mismatch.fasta)
+  - [queries/short.fasta](https://github.com/brianSalk/blast_practice_data/blob/main/queries/short.fasta)
   - [queries/gapped.fasta](https://github.com/brianSalk/blast_practice_data/blob/main/queries/gaps.fasta)
-  - [queries/compliment.fasta](#queriescomplimentfasta)
-  - [queries/repeate.fasta](#queriesrepeatefasta)
+  - [queries/compliment.fasta](https://github.com/brianSalk/blast_practice_data/blob/main/queries/compliment.fasta)
+  - [queries/repeate.fasta](https://github.com/brianSalk/blast_practice_data/blob/main/queries/repeat.fasta)
 - [BLAST Installation](#blast-installation)
   - [The Easy Way](#the-easy-way)
   - [The Hard Way](#the-hard-way)
