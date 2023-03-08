@@ -35,7 +35,7 @@ Used to demonstrate gapped alignments caused by INDELs.  Also demonstrate the `-
 Used to show that BLAST finds reverse compliments
 ### queries/repeate.fasta
 Used to show that blast filters out low complexity regions.  Also introduce `-dust` and `-soft_masking` parameters
-## BAST installation
+## BLAST installation
 ### The easy way
 the easiest way to install blast is to use your package manager:
 #### Debian/Ubuntu
