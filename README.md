@@ -11,7 +11,7 @@
 - [BLAST Installation](#blast-installation)
   - [The Easy Way](#the-easy-way)
   - [The Hard Way](#the-hard-way)
-- [Clone This Repo](#clone-this-repo)
+- [Clone This Repo](#clone-this-repo-to-your-computer)
 - [Getting Started With Blast](#getting-started-with-blast)
   - [Make a Database Using new_species.fasta as a Reference](#make-a-database-using-new_speciesfasta-as-a-reference)
 - [BLAST Output](#blast-output)
