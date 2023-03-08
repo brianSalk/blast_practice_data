@@ -1,11 +1,10 @@
 # Table of Contents
 
-- [Introduction](#introduction)
 - [Content](#content)
   - [new_speices.fasta](#new_speicesfasta)
   - [queries/mismatch](#queriesmismatch)
   - [queries/short.fasta](#queriesshortfasta)
-  - [queries/gapped.fasta](#queriesgappedfasta)
+  - [queries/gapped.fasta](https://github.com/brianSalk/blast_practice_data/blob/main/queries/gaps.fasta)
   - [queries/compliment.fasta](#queriescomplimentfasta)
   - [queries/repeate.fasta](#queriesrepeatefasta)
 - [BLAST Installation](#blast-installation)
