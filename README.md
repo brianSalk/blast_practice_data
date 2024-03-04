@@ -162,7 +162,7 @@ So we would expect that if we search for any long stretch of the query in our `n
 grep -Eo CATACTTCTAAGTACTCAAGACTGATGACTCTGACTACGCGCCAGCGGGCAGGAAATAGA < new_species.fasta
 ```
 What??? Why are we not finding this in our `new_species.fasta`?!!  First BLAST failed to find matches that existed because they were too short and now BLAST finds very high scoring matches that do not exist in our database at all...  \
-Remember that DNA is double stranded and that base pairs bind to compliments.  So not only does BLAST need to find close matches, but blast also needs to find close matches to **reverse compliments**.  We can verify that our query is a reverse compliment by looking at the `strand` part of our `out` file. \
+Remember that DNA is double stranded and that base pairs bind to compliments.  So not only does BLAST need to find close matches, but blast also needs to find close matches to **reverse compliments**.  We can verify that our query is a reverse compliment by looking at the `strand` part of our `out` file.  
 ```
 Strand=Plus/Minus
 ```
