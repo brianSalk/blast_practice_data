@@ -141,7 +141,7 @@ run the following command to return all instances of **GCCGTGAT** and **GGCTTCAT
 ```
 grep -Eo 'GGCTTCATTACG|GCCGTGAT' < new_species.fasta
 ```
-I won't go into detail about grep, but basically since BLAST found not hits, we would not expect `grep` to find any exact matches or the two sequences.  So what happened?  Why did BLAST not find matches but grep did? \
+I won't go into detail about grep, but basically since BLAST found no hits, we would not expect `grep` to find any exact matches or the two sequences.  So what happened?  Why did BLAST not find matches but grep did? \
 The answer is that BLAST uses a `-word_size` parameter.  Essentially, BLAST searches for exact matches that are of a certain minimum length called a word size.  This is one of several reasons why BLAST is able to perform so well.  By requiring long highly conserved regions, blast can avoid doing very computationally expensive operations on areas of the query that are unlikely to yeild significant results.  \
 The longer the word size the less sensitive BLAST is, the shorter the word size, the longer it takes BLAST to complete an alignment.  It is therefor very important to set the word size appropriatly. \
 Since our query sequences are in the database but did not show up, we can assume that our default word size is longer that the sequences in our query file. \
