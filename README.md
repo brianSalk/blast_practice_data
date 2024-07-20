@@ -192,27 +192,27 @@ blastn -db <DB> -query <QUERY> -outfmt N
 ```
 where `N` is a number in the range (0,11)  
 play around with this yourself to get a feel for how it works.  Here is a summery of what each output does.  
-### 0 pairwise
+### 0) pairwise
 this is the default output that we have been looking at so far  
-### 1 query-anchored showing identities
+### 1) query-anchored showing identities
 identities (matching nucleotides/amino-acids) in the reference sequence are represented with `.`s.  Insertions are shown using special notation.
-### 2 query-anchored no identities
+### 2) query-anchored no identities
 same as **1**, except identities are not represented with `.`s.
-### 3 flat query-anchored, show identities
+### 3) flat query-anchored, show identities
 identities are represented with `.`s. Deletions are shown instead of insertions (which is what makes it flat)
-### 4 flat query-anchored, no identities
+### 4) flat query-anchored, no identities
 same as **3**, except identities are not represented with `.`s.
-### 5 XML format
+### 5) XML format
 All the info is stored in XML format, making it easier for some downstream tools.
-### 6 tabular
+### 6) tabular
 show summary information in tab seperated format. 
-### 7 tabular with comment lines
+### 7) tabular with comment lines
 same as **6**, except contains additional comments prefixed with `#`.
-### 8 Text ASN.1
+### 8) Text ASN.1
 converts all info to ASN.1 format, which is usefull for certain downstream tools.
-### 9 Binary ASN.1
+### 9) Binary ASN.1
 Binary version of **8**
-### 10 Comma-separated values
+### 10) Comma-separated values
 Comma seperated summary stats
 ### BLAST archive format (ASN.1)
 
